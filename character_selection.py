@@ -27,15 +27,15 @@ class Character_Selection_Screen:
 
         self.clock = pygame.time.Clock()
 
-		self.test = Player("peter", 200, 400)
+        self.test = Player("travis", 200, 400)
         self.moving_sprites = pygame.sprite.Group()
         self.moving_sprites.add(self.test)
 
     def display_screen(self, events):
     
-		for event in events:
-			if event.type == pygame.QUIT:
-				pygame.quit()
+        for event in events:
+            if event.type == pygame.QUIT:
+                pygame.quit()
                 sys.exit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -56,27 +56,27 @@ class Character_Selection_Screen:
                 if self.vader_button.checkForInput(pygame.mouse.get_pos()):
                     print("Ich will Vader auswählen :(")
 
-                if event.type == pygame.KEYDOWN:
-                    if event.unicode == "d":
-                        self.test.walking_right=True
-                        #self.test.set_behaviour(walking_right=True)
-                if event.type == pygame.KEYUP:
-                    if event.unicode == "d":
-                        self.test.set_behaviour(standing_right=True)
-                if event.type == pygame.KEYDOWN:
-                    if event.unicode == "a":
-                        self.test.walking_left=True
-                        #self.test.set_behaviour(walking_left=True)
-                if event.type == pygame.KEYUP:
-                    if event.unicode == "a":
-                        self.test.set_behaviour(standing_left=True)
+            if event.type == pygame.KEYDOWN:
+                if event.unicode == "d":
+                    self.test.walking_right=True
+                    #self.test.set_behaviour(walking_right=True)
+            if event.type == pygame.KEYUP:
+                if event.unicode == "d":
+                    self.test.set_behaviour(standing_right=True)
+            if event.type == pygame.KEYDOWN:
+                if event.unicode == "a":
+                    self.test.walking_left=True
+                    #self.test.set_behaviour(walking_left=True)
+            if event.type == pygame.KEYUP:
+                if event.unicode == "a":
+                    self.test.set_behaviour(standing_left=True)
 
 
-            self.daddy.screen.blit(self.background, (0,0))
+        self.daddy.screen.blit(self.background, (0,0))
 
-            self.moving_sprites.draw(self.daddy.screen)
-            self.moving_sprites.update()
-            for button in self.character_buttons:
-                button.update(pygame.mouse.get_pos())
+        self.moving_sprites.draw(self.daddy.screen)
+        self.moving_sprites.update()
+        for button in self.character_buttons:
+            button.update(pygame.mouse.get_pos())
                 
 
