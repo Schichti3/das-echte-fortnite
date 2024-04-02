@@ -22,15 +22,8 @@ class Game:
 
     def run(self):
         while True:
-            events = pygame.event.get()
-            
             if self.character_selection.visible:
-                self.character_selection.display_screen(events)
-            #if self.fight_screen.visible:
-            #    pass
-
-            pygame.display.update()
-            self.clock.tick(60)
+                self.character_selection.run()
 
 
 
